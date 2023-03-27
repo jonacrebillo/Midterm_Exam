@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: $my-font;
+    background-color: $bg-color;
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .container {
+    max-width: 1100px;
+    padding: 0 10px;
+    margin: 0 auto;
+    overflow: auto;
+  }
+  
+  .exam {
+    @include set-background($primary-color);
+    height: 600px;
+  
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      h1{
+          margin-left: 1px;
+      }
+  
+      ul {
+        display: flex;
+        list-style-type: none;
+      }
+  
+      li {
+        padding: 15px;
+      }
+  
+      a {
+        color: set-text-color($primary-color);
+      }
+  
+      a:hover {
+        color: $secondary-color;
+      }
+  
+      .logo:hover {
+        transform: scale(1.2);
+        color: $secondary-color;
+      }
+    }
+    &-content {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+  
+      img {
+        width: 50%;
+      }
+  
+      h1 {
+        font-size: 50px;
+        line-height: 1-2;
+      }
+    }
+  }
+  
+  $space_amount: (1, 2, 3, 4, 5);
+  
+  @each $space in $space_amount {
+    .m-#{$space} {
+      margin: #{$space}rem;
+    }
+    .my-#{$space} {
+      margin: #{$space}rem 0;
+    }
+    .mx-#{$space} {
+      margin: 0 #{$space}rem 0;
+    }
+    .p-#{$space} {
+      padding: #{$space}rem;
+    }
+    .py-#{$space} {
+      padding: #{$space}rem 0;
+    }
+    .px-#{$space} {
+      padding: 0 #{$space}rem 0;
+    }
+  }
+  
+  %btn {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin: 3px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+  
+  .btn-primary {
+    @extend %btn;
+    @include set-background(lighten($primary-color, 100%));
+  }
+  
+  .btn-secondary {
+    @extend %btn;
+    @include set-background($secondary-color);
+  }
